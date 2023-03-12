@@ -28,12 +28,10 @@ for (property in engineers) {
 // Создать массив из 5 элементов.
 // Используя цикл for, вывести каждый второй элемент массива в консоль.
 
-let Task2 = [1, 2, 3, 4, 5];
+let task2 = [1, 2, 3, 4, 5];
 
-for (let i = 0; i < String.length; i++) {
-    if (i == 2 || i == 4) {
-        console.log(Task2)
-    }
+for (let i = 1; i < task2.length; i += 2) {
+    console.log(i)
 }
 
 //Есть массив произвольных чисел:
@@ -45,10 +43,10 @@ for (let i = 0; i < String.length; i++) {
 
 let numbers = [42, 65, 49, 68, 56, 47, 70, 42, 51, 35, 58, 63, 40, 70];
 
-for (n = 0; n < String.length; n++) {
-    for (property in numbers) {
-        console.log(`Индексу ${n++} соответсвует число ${numbers[property]} `)
-    }
+let i = 0;
+
+for (let item of numbers) {
+    console.log(`Индексу ${i++} соответсвует число ${item} `)
 }
 
 // Дан массив объектов, например:
@@ -106,7 +104,9 @@ let summa = 0;
 
 
 for (let i = 0; i < numbers.length; i++) {
-    if (numbers[i] % 2) { summa = summa + numbers[i] }
+    if (numbers[i] % 2 == 0) {
+        summa = summa + numbers[i]
+    }
 };
 console.log(summa);
 
@@ -182,15 +182,11 @@ console.log(secondNums);
 
 const users = [{ name: 'Vasya', age: 23 }, { name: 'Olya', age: 12 }, { name: 'Anna', age: 22 }, { name: 'Alex', age: 18 }, { name: 'Valery', age: 8 }];
 
-let older = [];
-
 for (let item of users) {
     if (item.age > 15) {
-        older.push(item)
+        console.log(item.name)
     }
 }
-
-console.log(older);
 
 // Задание 10
 
@@ -212,8 +208,8 @@ let vegetables = ["морковь", "баклажан", "репа", "топин�
 
 let newVegetables = [];
 
-for(let item of vegetables){
-    newVegetables.push(`{word: '${item}', lenghts:'${item.length}'}, `)
+for (let item of vegetables) {
+    newVegetables.push(`word ${item} , length: ${item.length}`)
 }
 
 console.log(newVegetables)
@@ -222,7 +218,7 @@ console.log(newVegetables)
 
 let newVegetables2 = []
 
-for(let item of vegetables){
+for (let item of newVegetables) {
     newVegetables2.push(`${item} - ${item.length}`)
 }
 
