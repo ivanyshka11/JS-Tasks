@@ -10,11 +10,9 @@
 // sum(); // введите два параметра
 
 function sumParams(a, b) {
-    if (typeof b == 'undefined') {
+    if (b == undefined || a == undefined) {
         return 'введите два параметра'
-    } else if (typeof b !== 'number') {
-        return 'введенные данные не являются числами'
-    } else if (typeof a !== 'number') {
+    } else if (typeof b !== 'number' || typeof a !== 'number') {
         return 'введенные данные не являются числами'
     } else { return a + b }
 }
@@ -53,12 +51,13 @@ let userNumber = prompt('введите число от 1 до 10');
 Number(userNumber)
 
 let userGame = (userNumber) => {
+    let randomInteger = getRandomInteger(1, 10)
     if (userNumber <= 0 || userNumber > 10) {
         return console.log('ваше число меньше 1 или больше 10')
-    } else if (userNumber == getRandomInteger(1, 10)) {
+    } else if (userNumber == randomInteger) {
         return console.log('вы выйграли')
     } else {
-        return console.log(`вы проиграли, ваше число ${userNumber}, а выпало число ${getRandomInteger(1, 10)}`)
+        return console.log(`вы проиграли, ваше число ${userNumber}, а выпало число ${randomInteger}`)
     }
 }
 
@@ -70,9 +69,7 @@ userGame(userNumber)
 
 const array = ['Ivan', 'Artem', 'Alexandr', 'Daniel', 'Tom', 'Martin'];
 
-let copyArr = function () { };
-
-const newArray = array.map(copyArr = (arr) => arr)
+const newArray = array.map(copyArr = item => item)
 
 console.log(newArray);
 
@@ -90,12 +87,13 @@ let objectWithNumbers = {
     d: 12,
 }
 
-let sum = 0;
 
-sumObjectValues = (array) => {
-    for (let item of array) {
-        if (typeof item == 'number') {
-            let sum = sum + item
+
+sumObjectValues = (object) => {
+    let sum = 0;
+    for (let property in object) {
+        if (typeof object[property] == 'number') {
+            sum = sum + object[property]
         }
     }
     return sum
