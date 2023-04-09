@@ -22,8 +22,7 @@ while (i < 3) {
 // }
 
 let country = 'Sweden';
-let access;
-country == 'Sweden' ? access = true : access = false;
+let access = country == 'Sweden' ? true : false;
 
 console.log(access);
 
@@ -51,10 +50,10 @@ console.log(access);
 
 const roles = [true, false, false, true, false];
 
-let newRoles = [];
+let newRoles = []
 
 for (let item of roles) {
-    item == true ? newRoles.push({ role: 'admin' },) : newRoles.push({ role: 'user' },)
+    let userRole = item == true ? newRoles.push("role: 'user'") : newRoles.push("role: 'admin'")
 }
 
 console.log(newRoles)
@@ -81,18 +80,15 @@ console.log(findPositiveNumbers(numbers))
 // Напишите функцию, которая принимает два параметра: значение и количество элементов. Функция создает новый массив и заполняет его этим значением в указанном количестве.
 // Например: из переданных значений ('a', 3) получаем массив ['a', 'a', 'a']
 
-let function5 = ['a', 6]
-let result5 = []
-let array = ['q', 4]
-
-function newArray(array) {
-    for (let i = array[1]; i > result5.length;) {
-        result5.push(array[0])
+function createNewArray(value, count) {
+    let newArray = []
+    for (let i = 0; i < count; i++) {
+        newArray.push(value)
     }
-    return result5
+    return newArray
 };
 
-console.log(newArray(function5));
+console.log(createNewArray('a', 5));
 
 // Определите массив, например let arr = [5, 4, 3, 8, 0].
 // Создайте функцию filterFor(arr, a). Функция должна вернуть новый массив из элементов arr, но в нем должны содержаться элементы, которые больше или равны (>=) значению переменной a.
@@ -131,20 +127,12 @@ function getRandomInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-let first = 0;
-let second = 0;
-let third = 0;
-let rgb = [];
-
-function getRandomRGB(one, two, three){
-    one = getRandomInteger(0, 255);
-    two = getRandomInteger(0, 255);
-    three = getRandomInteger(0, 255);
-    rgb = [`rgb(${one},${two},${three})`]
+function getRandomRGB(){
+    rgb = `rgb(${getRandomInteger(0,255)},${getRandomInteger(0,255)},${getRandomInteger(0,255)})`
     return rgb
 }
 
-console.log(getRandomRGB(first, second, third))
+console.log(getRandomRGB())
 
 
 // Написать функцию, которая выводит в консоль квадраты чисел из заданного диапазона (от min до max), где значения min и max передаются в функцию как параметры.
